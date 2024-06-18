@@ -1,0 +1,15 @@
+sequenceDiagram
+    participant Browser as Browser
+    participant Server as Server
+
+    
+
+    Note right of Browser: The browser updates the view dynamically without reloading the page
+
+    Note right of Browser: The user submits a new note via the SPA interface
+    Browser->>Server: POST https://studies.cs.helsinki.fi/spa/notes/new_note_spa
+    activate Server 
+    Server-->>Browser: Confirmation or updated resource
+    deactivate Server
+
+    Note right of Browser: The browser updates the view with the new note without a full page reload

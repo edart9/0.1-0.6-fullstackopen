@@ -1,0 +1,17 @@
+sequenceDiagram
+    participant Browser as Browser
+    participant Server as Server
+
+    Browser->>Server: GET https://studies.cs.helsinki.fi/spa
+    activate Server
+    Server-->>Browser: HTML + CSS + JS (SPA)
+    deactivate Server
+
+    Note right of Browser: The browser executes the JavaScript which includes routing and rendering logic
+
+    Note right of Browser: User navigates to the notes section within the SPA with JS
+    Browser->>Server: GET https://studies.cs.helsinki.fi/spa/notes/data.json
+    activate Server
+    Server-->>Browser: [{ "content": "SPA ", "date": "2024-06-18" }, ... ]
+    deactivate Server
+    
